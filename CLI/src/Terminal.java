@@ -41,15 +41,16 @@ public class Terminal {
         } else if (parser.args[0].equals(".") || parser.args[0].equals("./")){
             System.out.print("");
         } else {
-            if(Files.exists(newPath) && Files.isDirectory(newPath)){
+//            if(Files.isDirectory(newPath)){
                 if(!newPath.isAbsolute()){
                     newPath = Paths.get(CWD.toString(),newPath.toString());
+                    CWD = Paths.get(newPath.toString());
                 }
-                String absPath = newPath.toString();
-                System.setProperty("user.dir", absPath);
-            } else {
-                System.out.println("Err: Invalid working dir!");
-            }
+                CWD = Paths.get(newPath.toString());
+                System.setProperty("user.dir", CWD.toString());
+//            } else {
+//                System.out.println("Err: Invalid working dir!");
+//            }
         }
 
 
@@ -378,8 +379,9 @@ public class Terminal {
     public void main() {
         Scanner in = new Scanner(System.in);
         String input ;
-        Path path = Paths.get("");
+        Path path = Paths.get(System.getProperty("user.dir"));
         while (true){
+            path = Paths.get(System.getProperty("user.dir"));
             System.out.print("[" + System.getProperty("user.name") + " " + path.getFileName().toString() + "] ");
             input = in.nextLine();
             if (parser.parse(input)){
