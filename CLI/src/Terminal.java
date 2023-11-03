@@ -155,29 +155,6 @@ public class Terminal {
             e.printStackTrace();
         }
     }
-//    FIXME CP-R
-//    public void cp_r(){
-//        CWD = Paths.get(System.getProperty("user.dir")).toAbsolutePath();
-//        try {
-//
-//            Path source = Paths.get( parser.args[0]);
-//            if(!source.isAbsolute()){
-//                source = Paths.get(CWD.toString(), parser.args[0]);
-//            }
-//            Path destination = Paths.get(parser.args[1]);
-//            if(!destination.isAbsolute()){
-//                destination = Paths.get(CWD.toString(), parser.args[1]);
-//            }
-//            if(Files.isDirectory(source) && Files.isDirectory(destination)){
-//
-//                Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
-//            } else {
-//                System.out.println("Err: There is no such directory!");
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
     //todo CAT(1 arg) //Done
     public void cat_1(){
         history.addLast(parser.commandName);
