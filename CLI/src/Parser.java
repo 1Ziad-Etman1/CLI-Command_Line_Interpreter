@@ -4,6 +4,7 @@ class Parser {
 
     public Parser() {
         this.commandName = "";
+        this.args = new String[0];
     }
 
     public boolean parse(String input){
